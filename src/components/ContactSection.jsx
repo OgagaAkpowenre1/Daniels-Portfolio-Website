@@ -1,15 +1,26 @@
-import { Linkedin, Mail, MapPin, Phone, Twitter, Facebook, Send } from "lucide-react";
-import {cn} from "@/lib/utils";
+import {
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Facebook,
+  Send,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 function ContactSection() {
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-        setTimeout(() => {
-
-        }, 1500)
-    }
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+        // setIsSubmitting(false)
+    }, 1500);
+    setIsSubmitting(false);
+  };
 
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -93,10 +104,15 @@ function ContactSection() {
 
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a message</h3>
-            <form action="" className="space-y-6">
-                {/* name */}
+            <form action="" className="space-y-6" onSubmit={handleSubmit}>
+              {/* name */}
               <div>
-                <label htmlFor="name" className="text-sm block font-medium mb-2">Your Name</label>
+                <label
+                  htmlFor="name"
+                  className="text-sm block font-medium mb-2"
+                >
+                  Your Name
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -106,9 +122,14 @@ function ContactSection() {
                   placeholder="John Doe"
                 />
               </div>
-                {/* email */}
+              {/* email */}
               <div>
-                <label htmlFor="email" className="text-sm block font-medium mb-2">Your Email</label>
+                <label
+                  htmlFor="email"
+                  className="text-sm block font-medium mb-2"
+                >
+                  Your Email
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -118,9 +139,14 @@ function ContactSection() {
                   placeholder="johndoe@mail.com"
                 />
               </div>
-                {/* message */}
+              {/* message */}
               <div>
-                <label htmlFor="message" className="text-sm block font-medium mb-2">Your Message</label>
+                <label
+                  htmlFor="message"
+                  className="text-sm block font-medium mb-2"
+                >
+                  Your Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -129,9 +155,15 @@ function ContactSection() {
                   placeholder="Hi, I'd like to talk about..."
                 />
               </div>
-                {/* Submit */}
-              <button type="submit" className={cn("cosmic-button w-full flex items-center justify-center gap-2", )}>
-                Send Message <Send size={16} />
+              {/* Submit */}
+              <button
+                type="submit"
+                className={cn(
+                  "cosmic-button w-full flex items-center justify-center gap-2"
+                )}
+                disabled={isSubmitting}
+              >
+                {isSubmitting? "Sending..." :"Send Message"} <Send size={16} />
               </button>
             </form>
           </div>
