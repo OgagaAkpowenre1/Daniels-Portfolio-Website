@@ -3,21 +3,21 @@ import { ExternalLink, Github, ArrowRight } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "React Dashboard",
-    description: "Lorem ipsum dolor et sum",
-    img: "/projects/dashboard.png",
-    tags: ["React", "Kaban", "Tailwind"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Linkhub Bookmark Manager",
+    description:  "A modern bookmark management tool that lets users organize, store, and access their favorite links with ease. Built with React and Supabase for authentication and database support, featuring a clean and responsive UI for seamless productivity.",
+    img: "/projects/linkhub-project.png",
+    tags: ["React", "Supabase", "CSS"],
+    demoUrl: "https://linkhub-bookmark-manager.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/Linkhub-Bookmark-Manager",
   },
   {
     id: 2,
-    title: "React Dashboard",
-    description: "Lorem ipsum dolor et sum",
-    img: "/projects/dashboard.png",
-    tags: ["React", "Kaban", "Tailwind"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Lyriks (Spotify Clone)",
+    description: "A Spotify-inspired music streaming web app powered by RapidAPI. It allows users to explore trending tracks, search for songs or artists, and enjoy an interactive UI. Built with React, Tailwind CSS, and Redux for smooth state management and responsive design.",
+    img: "/projects/spotify-clone.png",
+    tags: ["React", "RapidAPI", "Tailwind", "Redux"],
+    demoUrl: "https://www.danmusic.netlify.app",
+    githubUrl: "https://github.com/OgagaAkpowenre1/Spotify-Clone-v2",
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ function ProjectsSection() {
               key={key}
               className="group bg-card overflow-hidden rounded-lg shadow-xs card-hover"
             >
-              <div className="h-48 overflow-hidden ">
+              <div className="h-48 overflow-hidden">
                 <img
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   src={project.img}
