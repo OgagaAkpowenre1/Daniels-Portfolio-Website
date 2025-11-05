@@ -39,7 +39,7 @@ function Navbar() {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground">DanDev</span> Portfolio
+            <span className="text-glow text-foreground">Daniel's</span> Portfolio
           </span>
         </a>
 

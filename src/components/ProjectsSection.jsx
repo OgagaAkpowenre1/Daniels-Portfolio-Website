@@ -4,7 +4,7 @@ const projects = [
   {
     id: 1,
     title: "Linkhub Bookmark Manager",
-    description:  "A modern bookmark management tool that lets users organize, store, and access their favorite links with ease. Built with React and Supabase for authentication and database support, featuring a clean and responsive UI for seamless productivity.",
+    description: "A modern bookmark management tool that lets users organize, store, and access their favorite links with ease. Built with React and Supabase for authentication and database support, featuring a clean and responsive UI for seamless productivity.",
     img: "/projects/linkhub-project.png",
     tags: ["React", "Supabase", "CSS"],
     demoUrl: "https://linkhub-bookmark-manager.vercel.app/",
@@ -22,11 +22,38 @@ const projects = [
   {
     id: 3,
     title: "React Dashboard",
-    description: "Lorem ipsum dolor et sum",
+    description: "A dynamic and responsive admin dashboard featuring data visualization, user management, and theme customization. Built with React and Tailwind CSS, it demonstrates clean state management for handling complex UI components efficiently.",
     img: "/projects/dashboard.png",
     tags: ["React", "Kaban", "Tailwind"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "https://themed-dashboard.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/themed-dashboard",
+  },
+  {
+    id: 4,
+    title: "Pixel Art Editor",
+    description: "An interactive web-based canvas for creating pixel art from scratch. This tool provides a customizable grid, a color palette picker, and essential drawing tools, empowering users to easily design their digital artwork.",
+    img: "/projects/pixel-art-editor.png",
+    tags: ["HTML", "CSS", "Javascript", "Canvas API"],
+    demoUrl: "https://ogagaakpowenre1.github.io/Pixel-Art-Editor/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/Pixel-Art-Editor",
+  },
+  {
+    id: 5,
+    title: "Towers of Hanoi",
+    description: "A digital implementation of the classic Towers of Hanoi puzzle. It features a clean, intuitive interface, a move counter, and interactive disk dragging, providing a smooth and engaging brain-teasing experience.",
+    img: "/projects/towers-of-hanoi.png",
+    tags: ["HTML", "CSS", "Javascript"],
+    demoUrl: "https://ogagaakpowenre1.github.io/towers-of-hanoi/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/towers-of-hanoi",
+  },
+  {
+    id: 6, // Fixed duplicate ID here (was also 5)
+    title: "Maze Pathfinding Visualizer",
+    description: "An educational tool that visually demonstrates how different pathfinding algorithms navigate through a maze. Users can build their own walls and watch as the algorithm explores the grid in real-time.",
+    img: "/projects/maze-visualizer.png",
+    tags: ["HTML", "CSS", "Javascript", "Canvas API"],
+    demoUrl: "https://ogagaakpowenre1.github.io/Maze-Pathfinding-Visualizer/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/Maze-Pathfinding-Visualizer",
   },
 ];
 
@@ -96,7 +123,7 @@ function ProjectsSection() {
         </div>
 
         <div className="text-center mt-12">
-          <a href="#" target="_blank" className="cosmic-button w-fit flex items-center mx-auto gap-2">
+          <a href="https://github.com/OgagaAkpowenre1" target="_blank" className="cosmic-button w-fit flex items-center mx-auto gap-2">
             Check my Github <ArrowRight size={16} />
           </a>
         </div>
