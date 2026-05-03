@@ -20,13 +20,6 @@ function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef(null);
 
-  const initializeEmailJS = () => {
-    emailjs.init({
-      publicKey: EMAILJS_PUBLIC_KEY,
-      blockHeadless: false,
-    });
-  };
-
   const resetForm = () => {
     if (formRef.current) {
       formRef.current.reset();
