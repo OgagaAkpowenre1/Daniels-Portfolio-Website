@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 // IMPORTANT: Replace these with your actual values from EmailJS dashboard
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
 function ContactSection() {
@@ -39,7 +39,7 @@ function ContactSection() {
 
     const templateParams = {
       name: e.target.name.value,
-      time: Date().toLocaleUpperCase(),
+      time: new Date().toLocaleString(),
       message: e.target.message.value,
       title: "Message from Portfolio - URGENT!!!!",
       email: e.target.email.value, 
@@ -133,7 +133,7 @@ function ContactSection() {
               <div className="pt-8">
                 <h4 className="font-medium mb-4">Connect with me</h4>
                 <div className="flex space-x-4 justify-center">
-                  <a href="www.linkedin.com/in/ogagaoghene-daniel-akpowenre-749826303">
+                  <a href="https://www.linkedin.com/in/ogagaoghene-daniel-akpowenre-749826303">
                     <Linkedin />
                   </a>
                   <a href="https://profile.indeed.com/p/ogagaoghenea-w2hs2yl">
