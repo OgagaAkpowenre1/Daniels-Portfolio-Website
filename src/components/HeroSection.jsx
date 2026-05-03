@@ -20,8 +20,7 @@ function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl opacity-0 mx-auto animate-fade-in-delay-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            modi ad consequatur veniam atque similique?
+            I'm a computer scientist with experience in web development and an interest in game development.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

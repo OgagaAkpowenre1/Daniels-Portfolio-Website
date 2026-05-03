@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   Linkedin,
   Mail,
@@ -8,18 +10,61 @@ import {
   Send,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+
+// IMPORTANT: Replace these with your actual values from EmailJS dashboard
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
 function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const initializeEmailJS = () => {
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY,
+      blockHeadless: false,
+    });
+  };
+
+  const resetForm = () => {
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-        // setIsSubmitting(false)
-    }, 1500);
-    setIsSubmitting(false);
+
+    const templateParams = {
+      name: e.target.name.value,
+      time: Date().toLocaleUpperCase(),
+      message: e.target.message.value,
+      title: "Message from Portfolio - URGENT!!!!",
+      email: e.target.email.value, 
+    };
+
+    try {
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      if (result.status === 200) {
+        alert("Message sent successfully! 🎉");
+        resetForm();
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert(
+        "Failed to send message. Please check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -29,15 +74,15 @@ function ContactSection() {
           Get In <span className="text-primary"> Touch</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos velit
-          cupiditate sapiente? Aspernatur sequi magni numquam quis dolorum?
-          Vero, maiores?
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-xl">
+          Like what you see? <br /> Here's where to find me
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-semibold mb-6">
+              Contact Information
+            </h3>
             <div className="space-y-6 justify-center">
               {/* item 1 */}
               <div className="flex items-start space-x-4">
@@ -88,15 +133,15 @@ function ContactSection() {
               <div className="pt-8">
                 <h4 className="font-medium mb-4">Connect with me</h4>
                 <div className="flex space-x-4 justify-center">
-                  <a href="#">
+                  <a href="www.linkedin.com/in/ogagaoghene-daniel-akpowenre-749826303">
                     <Linkedin />
                   </a>
-                  <a href="#">
-                    <Twitter />
+                  <a href="https://profile.indeed.com/p/ogagaoghenea-w2hs2yl">
+                    <img className="w-10" src="https://www.pngall.com/wp-content/uploads/15/Indeed-Logo-PNG-Photo.png" alt="" />
                   </a>
-                  <a href="#">
+                  {/* <a href="#">
                     <Facebook />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
@@ -104,7 +149,12 @@ function ContactSection() {
 
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a message</h3>
-            <form action="" className="space-y-6" onSubmit={handleSubmit}>
+            <form
+              ref={formRef}
+              className="space-y-6"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               {/* name */}
               <div>
                 <label
@@ -151,6 +201,7 @@ function ContactSection() {
                   id="message"
                   name="message"
                   required
+                  rows="5"
                   className="w-full px-4 rounded-md py-3 border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Hi, I'd like to talk about..."
                 />
@@ -159,11 +210,13 @@ function ContactSection() {
               <button
                 type="submit"
                 className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
+                  "cosmic-button w-full flex items-center justify-center gap-2",
+                  isSubmitting && "opacity-70 cursor-not-allowed"
                 )}
                 disabled={isSubmitting}
               >
-                {isSubmitting? "Sending..." :"Send Message"} <Send size={16} />
+                {isSubmitting ? "Sending..." : "Send Message"}
+                <Send size={16} />
               </button>
             </form>
           </div>
