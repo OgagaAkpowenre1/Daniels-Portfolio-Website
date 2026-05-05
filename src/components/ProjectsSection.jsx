@@ -55,6 +55,65 @@ const projects = [
     demoUrl: "https://ogagaakpowenre1.github.io/Maze-Pathfinding-Visualizer/",
     githubUrl: "https://github.com/OgagaAkpowenre1/Maze-Pathfinding-Visualizer",
   },
+  {
+    id: 7, 
+    title: "Movie Database",
+    description: "A dynamic movie discovery platform powered by the IMDB API. Users can search for titles, view trending films, and access detailed information through a responsive, modern interface.",
+    img: "/projects/movie-database.png",
+    tags: ["HTML", "Javascript", "React", "IMBD API", "Tailwind CSS"],
+    demoUrl: "https://movie-database-lake.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/MovieDatabase",
+  },
+
+  {
+    id: 8, 
+    title: "Recipe Database WebApp",
+    description: "A culinary search engine that allows users to explore a vast collection of recipes. Features a clean UI for browsing ingredients and cooking instructions for various cuisines.",
+    img: "/projects/recipe app.png",
+    tags: ["HTML", "Javascript", "React", "Tailwind CSS"],
+    demoUrl: "https://recipe-app-theta-nine.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/recipe-app",
+  },
+
+  {
+    id: 9, 
+    title: "Shopping Cart WebApp",
+    description: "A fully functional e-commerce simulation featuring complex state management. Users can add products to a cart, adjust quantities, and see real-time price updates.",
+    img: "/projects/Mock Shopping Cart.png",
+    tags: ["HTML", "Javascript", "React", "Tailwind CSS"],
+    demoUrl: "https://shopping-cart-kohl-three.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/shopping-cart",
+  },
+
+  {
+    id: 10, 
+    title: "Weather Forecast WebApp",
+    description: "A real-time weather application that fetches live data from a weather API. It provides users with current conditions and extended forecasts for locations worldwide.",
+    img: "/projects/weather-app.png",
+    tags: ["HTML", "Javascript", "React", "Tailwind CSS"],
+    demoUrl: "https://weatherappbranch.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/weatherappbranch",
+  },
+
+  {
+    id: 11, // Adjusted ID for uniqueness
+    title: "Tenzies Web Game",
+    description: "A fast-paced interactive dice game built to master React hooks and state. Players roll to match all dice numbers as quickly as possible with a satisfying win state.",
+    img: "/projects/tenzies.png",
+    tags: ["HTML", "Javascript", "React", "Tailwind CSS"],
+    demoUrl: "https://tenzies-three-rust.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/tenzies",
+  },
+
+  {
+    id: 12, // Adjusted ID for uniqueness
+    title: "Financial Expense Tracker",
+    description: "A personal finance tool designed to track income and spending. Features a history of transactions and a real-time calculation of total balance to help users manage their budget.",
+    img: "/projects/expense-tracker.png",
+    tags: ["HTML", "Javascript", "React", "Tailwind CSS"],
+    demoUrl: "https://expense-tracker-blush-one.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/expense-tracker",
+  },
 ];
 
 function ProjectsSection() {
@@ -77,11 +136,14 @@ function ProjectsSection() {
               className="group bg-card overflow-hidden rounded-lg shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
-                <img
+                <a href={project.demoUrl}>
+                  <img
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   src={project.img}
                   alt={project.title}
                 />
+                </a>
+                
               </div>
 
               <div className="p-6">
@@ -93,7 +155,9 @@ function ProjectsSection() {
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                <a href={project.demoUrl}>
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                </a>
                 <p className="text-muted-foreground mb-4 text-sm">
                   {project.description}
                 </p>
