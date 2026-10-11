@@ -12,12 +12,12 @@ const projects = [
   },
   {
     id: 2,
-    title: "Lyriks (Spotify Clone)",
-    description: "A Spotify-inspired music streaming web app powered by RapidAPI. It allows users to explore trending tracks, search for songs or artists, and enjoy an interactive UI. Built with React, Tailwind CSS, and Redux for smooth state management and responsive design.",
-    img: "/projects/spotify-clone.png",
-    tags: ["React", "RapidAPI", "Tailwind", "Redux"],
-    demoUrl: "https://www.danmusic.netlify.app",
-    githubUrl: "https://github.com/OgagaAkpowenre1/Spotify-Clone-v2",
+    title: "Soundvault (Spotify Clone)",
+    description: "A Spotify-inspired music streaming web app powered by DeezerAPI. It allows users to explore trending tracks, search for songs or artists, enjoy an interactive UI and play a tiered song-guesser game. Built with React, Tailwind CSS, and Redux for smooth state management and responsive design.",
+    img: "/projects/soundvault-project.png",
+    tags: ["React", "DeezerAPI", "Tailwind", "Redux"],
+    demoUrl: "https://deezer-music-player-portfolio-proje.vercel.app/",
+    githubUrl: "https://github.com/OgagaAkpowenre1/Deezer-Music-Player-Portfolio-Project",
   },
   {
     id: 3,
